@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "b090cca3-e3e1-4da5-812f-1fb0161dd0a3",
+		"name": "nest js project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11165073"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"julie6@gmail.com\",\r\n    \"password\" : \"julie\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "Login api"
+			},
+			"response": []
+		},
+		{
+			"name": "View profile to test token",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllNkBnbWFpbC5jb20iLCJpYXQiOjE3MDQ1MTY2OTh9.evm5sXq2T0w16jg5Tz0Zpv2kVQwHNMqvIyxndrV6EAQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/auth/viewprofile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"auth",
+						"viewprofile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGllNkBnbWFpbC5jb20iLCJpYXQiOjE3MDQ1MTY2OTh9.evm5sXq2T0w16jg5Tz0Zpv2kVQwHNMqvIyxndrV6EAQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3001/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/user/6532becd79af55a93dcaa26e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user",
+						"6532becd79af55a93dcaa26e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User creation many",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"request\": [{\r\n    \"name\" :\"julie12\",\r\n    \"email\" : \"julie12@gmail.com\",\r\n    \"password\" : \"julie\",\r\n    \"role_id\"   : \"[eeeee]\",\r\n    \"gender\" : \"male\",\r\n    \"created_by\": \"admin\",\r\n    \"mobile_number\" : \"3434343\" \r\n       },\r\n       {\r\n    \"name\" :\"julie12\",\r\n    \"email\" : \"julie11@gmail.com\",\r\n    \"password\" : \"julie\",\r\n    \"role_id\"   : \"[eeeee]\",\r\n    \"gender\" : \"male\",\r\n    \"created_by\": \"admin\",\r\n    \"mobile_number\" : \"3434343\" \r\n       }\r\n       ]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/user/insertmany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user",
+						"insertmany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User creation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\" :\"user6\",\r\n    \"email\" : \"user6@gmail.com\",\r\n    \"password\" : \"user6\",\r\n    \"gender\" : \"male\",\r\n    \"created_by\": \"admin\",\r\n    \"mobile_number\" : \"3434343\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by email",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"email\" : \"user7@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/user/user7@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"user",
+						"user7@gmail.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
